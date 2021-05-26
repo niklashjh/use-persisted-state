@@ -1,4 +1,3 @@
-/* eslint-disable unicorn/no-nested-ternary */
 const createStorage = (provider, { parseReviver } = {}) => ({
   get(key, defaultValue) {
     const json = provider.getItem(key);
