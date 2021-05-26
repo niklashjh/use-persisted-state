@@ -1,11 +1,9 @@
 {
-  "extends": [
-    "amex",
-    "plugin:react-hooks/recommended"
-  ],
+  "extends": ["amex", "plugin:react-hooks/recommended"],
   "rules": {
-    "arrow-parens":"off",
+    "arrow-parens": "off",
     "object-curly-newline": "off",
-    "operator-linebreak": "off"
+    "operator-linebreak": "off",
+    "linebreak-style": ["error", "windows"]
   }
 }

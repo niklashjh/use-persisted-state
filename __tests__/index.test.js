@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import 'jest-dom/extend-expect';
+import '@testing-library/jest-dom/extend-expect';
 
 import createPersistedState from '../src';
 import * as usePersistedState from '../src/usePersistedState';
