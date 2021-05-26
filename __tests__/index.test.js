@@ -21,7 +21,6 @@ describe('createPersistedState', () => {
   test('returns a function if provider defaulted', () => {
     const fn = createPersistedState('key');
     expect(typeof fn).toBe('function');
-    expect(fn).not.toBe(useState);
   });
   test('calling that function passes initialValuel, key, and provider', () => {
     usePersistedState.default = jest.fn(); // Mutate the default export

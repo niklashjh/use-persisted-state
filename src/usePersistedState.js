@@ -1,7 +1,6 @@
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { dequal } from 'dequal/lite';
 import useEventListener from '@use-it/event-listener';
-
 import createGlobalState from './createGlobalState';
 import useMemoizedObject from './useMemoizedObject';
 
@@ -32,23 +31,8 @@ const usePersistedState = (initialState, key, { get, set }) => {
     return () => {
       globalState.current.deregister();
     };
-  }, [initialState, get, key]);
+  }, []);
 
-  const persistentSetState = useCallback(
-    (newState) => {
-      const newStateValue =
-        typeof newState === 'function' ? newState(state) : newState;
-
-      // persist to localStorage
-      set(key, newStateValue);
-
-      setState(newStateValue);
-
-      // inform all of the other instances in this tab
-      globalState.current.emit(newState);
-    },
-    [state, set, key]
-  );
   // Only persist to storage if state changes.
   useEffect(() => {
     // persist to localStorage
@@ -58,7 +42,7 @@ const usePersistedState = (initialState, key, { get, set }) => {
     globalState.current.emit(state);
   }, [state]);
 
-  return [state, persistentSetState];
+  return [state, setState];
 };
 
 export default usePersistedState;

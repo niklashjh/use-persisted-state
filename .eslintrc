@@ -4,6 +4,7 @@
     "arrow-parens": "off",
     "object-curly-newline": "off",
     "operator-linebreak": "off",
-    "linebreak-style": ["error", "windows"]
+    "linebreak-style": ["warn", "windows"],
+    "unicorn/no-nested-ternary": "off"
   }
 }
